@@ -11,12 +11,10 @@ public class SimpleControls : InputActionAssetReference
     public SimpleControls()
     {
     }
-
     public SimpleControls(InputActionAsset asset)
         : base(asset)
     {
     }
-
     private bool m_Initialized;
     private void Initialize()
     {
@@ -28,7 +26,6 @@ public class SimpleControls : InputActionAssetReference
         m_gameplay_jump = m_gameplay.GetAction("jump");
         m_Initialized = true;
     }
-
     private void Uninitialize()
     {
         m_gameplay = null;
@@ -38,19 +35,16 @@ public class SimpleControls : InputActionAssetReference
         m_gameplay_jump = null;
         m_Initialized = false;
     }
-
     public void SetAsset(InputActionAsset newAsset)
     {
         if (newAsset == asset) return;
         if (m_Initialized) Uninitialize();
         asset = newAsset;
     }
-
     public override void MakePrivateCopyOfActions()
     {
         SetAsset(ScriptableObject.Instantiate(asset));
     }
-
     // gameplay
     private InputActionMap m_gameplay;
     private InputAction m_gameplay_fire;

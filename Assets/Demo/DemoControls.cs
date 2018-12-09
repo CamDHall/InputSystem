@@ -11,12 +11,10 @@ public class DemoControls : InputActionAssetReference
     public DemoControls()
     {
     }
-
     public DemoControls(InputActionAsset asset)
         : base(asset)
     {
     }
-
     private bool m_Initialized;
     private void Initialize()
     {
@@ -36,7 +34,6 @@ public class DemoControls : InputActionAssetReference
         m_menu_point = m_menu.GetAction("point");
         m_Initialized = true;
     }
-
     private void Uninitialize()
     {
         if (m_GameplayActionsCallbackInterface != null)
@@ -61,7 +58,6 @@ public class DemoControls : InputActionAssetReference
         m_menu_point = null;
         m_Initialized = false;
     }
-
     public void SetAsset(InputActionAsset newAsset)
     {
         if (newAsset == asset) return;
@@ -72,12 +68,10 @@ public class DemoControls : InputActionAssetReference
         gameplay.SetCallbacks(gameplayCallbacks);
         menu.SetCallbacks(menuCallbacks);
     }
-
     public override void MakePrivateCopyOfActions()
     {
         SetAsset(ScriptableObject.Instantiate(asset));
     }
-
     // gameplay
     private InputActionMap m_gameplay;
     private IGameplayActions m_GameplayActionsCallbackInterface;
@@ -226,6 +220,7 @@ public class DemoControls : InputActionAssetReference
     public InputControlScheme KeyboardMouseScheme
     {
         get
+
         {
             if (m_KeyboardMouseSchemeIndex == -1) m_KeyboardMouseSchemeIndex = asset.GetControlSchemeIndex("Keyboard&Mouse");
             return asset.controlSchemes[m_KeyboardMouseSchemeIndex];
@@ -235,6 +230,7 @@ public class DemoControls : InputActionAssetReference
     public InputControlScheme GamepadScheme
     {
         get
+
         {
             if (m_GamepadSchemeIndex == -1) m_GamepadSchemeIndex = asset.GetControlSchemeIndex("Gamepad");
             return asset.controlSchemes[m_GamepadSchemeIndex];
@@ -244,6 +240,7 @@ public class DemoControls : InputActionAssetReference
     public InputControlScheme SteamScheme
     {
         get
+
         {
             if (m_SteamSchemeIndex == -1) m_SteamSchemeIndex = asset.GetControlSchemeIndex("Steam");
             return asset.controlSchemes[m_SteamSchemeIndex];
@@ -253,6 +250,7 @@ public class DemoControls : InputActionAssetReference
     public InputControlScheme VRScheme
     {
         get
+
         {
             if (m_VRSchemeIndex == -1) m_VRSchemeIndex = asset.GetControlSchemeIndex("VR");
             return asset.controlSchemes[m_VRSchemeIndex];
